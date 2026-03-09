@@ -17,5 +17,8 @@
   - Added one to many relationship
 
 - `ProductRepository` & `ProductCategoryRepository` interfaces
-  - Defined repository interfaces for automatic REST endpoint generation
+  - Defines repository interfaces for automatic REST endpoint generation
   - By default => Spring Data REST will create endpoints based on entity provided
+
+- `MyDataRestConfig` class
+  - Configuration class to disable HTTP methods POST, PUT, DELETE for `Product` & `ProductCategory`
