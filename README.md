@@ -15,3 +15,7 @@
   - Includes 2 fields that will be mapped into database table `product_category`
   - Added appropiate annotations to each field to map into corresponding column
   - Added one to many relationship
+
+- `ProductRepository` & `ProductCategoryRepository` interfaces
+  - Defined repository interfaces for automatic REST endpoint generation
+  - By default => Spring Data REST will create endpoints based on entity provided
