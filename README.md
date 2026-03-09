@@ -6,6 +6,12 @@
   - `02-create-products.sql` creates `product` & `product_Category` table & load tables with sample data
 
 **Backend**
-- Created `Product` class
-  - Includes all fields that will be mapped into database table
+- `Product` class
+  - Includes all fields that will be mapped into database table `product`
   - Added appropiate annotations to each field to map into corresponding column
+  - Added many to one relationship
+
+- `ProductCategory` class
+  - Includes 2 fields that will be mapped into database table `product_category`
+  - Added appropiate annotations to each field to map into corresponding column
+  - Added one to many relationship
