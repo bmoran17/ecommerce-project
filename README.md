@@ -5,7 +5,7 @@
   - `01-create-user.sql` creates MySQL user for application
   - `02-create-products.sql` creates `product` & `product_Category` table & load tables with sample data
 
-**Backend**
+**Backend: Spring Boot**
 - `Product` class
   - Includes all fields that will be mapped into database table `product`
   - Added appropiate annotations to each field to map into corresponding column
@@ -22,3 +22,5 @@
 
 - `MyDataRestConfig` class
   - Configuration class to disable HTTP methods POST, PUT, DELETE for `Product` & `ProductCategory`
+
+**Frontend: Angular**
