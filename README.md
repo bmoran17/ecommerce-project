@@ -27,3 +27,7 @@
 - `product.ts`: Product TypeScript Class
   - Includes product properties matching REST API response
   - Used constructor parameter properties to automatically declare and assign fields
+
+- `product.service.ts`: Product Service to call REST APIs
+  - TypeScript helper class running on client responsible for calling backend APIs
+  - Makes request to backend url -> grabs data & unwraps -> makes it available as an array of products
