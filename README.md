@@ -24,3 +24,6 @@
   - Configuration class to disable HTTP methods POST, PUT, DELETE for `Product` & `ProductCategory`
 
 **Frontend: Angular**
+- `product.ts`: Product TypeScript Class
+  - Includes product properties matching REST API response
+  - Used constructor parameter properties to automatically declare and assign fields
