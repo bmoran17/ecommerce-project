@@ -36,3 +36,8 @@
   - Developed Angular to Subscribe to Data
   - Added asynchronous call so subscribing triggers the observable & makes the API call
   - Data returned is assigned to own property `products`
+
+- ``product-list.component.html`: HTML Page for Product List
+  - Used Angular `ngFor` directive to iterate over products to display product name & price
+  - Added Angular currency pipe to format price in USD
+  - Added CrossOrigin Support to Spring Boot
