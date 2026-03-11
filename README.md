@@ -31,3 +31,8 @@
 - `product.service.ts`: Product Service to call REST APIs
   - TypeScript helper class running on client responsible for calling backend APIs
   - Makes request to backend url -> grabs data & unwraps -> makes it available as an array of products
+
+- `product-list.component.ts`: Product List TypeScript Class
+  - Developed Angular to Subscribe to Data
+  - Added asynchronous call so subscribing triggers the observable & makes the API call
+  - Data returned is assigned to own property `products`
