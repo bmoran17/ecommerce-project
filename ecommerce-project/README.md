@@ -41,8 +41,14 @@
   - Added asynchronous call so subscribing triggers the observable & makes the API call
   - Data returned is assigned to own property `products`
 
-- ``product-list.component.html`: HTML Page for Product List
+- `product-list.component.html`: HTML Page for Product List
   - Used Angular `ngFor` directive to iterate over products to display product name & price
   - Added Angular currency pipe to format price in USD
   - Added CrossOrigin Support to Spring Boot
 
+### Version 2.0 Changes
+- `app.component.html`: HTML Home Page for App
+  - Template updated to include side bar, header, footer and product list component
+
+- `product-list-grid.component.html`: HTML Page for Product List
+  - Updated product list component to be shown as a grid 
