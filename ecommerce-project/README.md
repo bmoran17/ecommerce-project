@@ -71,3 +71,11 @@
 - Modify Spring Boot App
   - REST repository needs new method 
   - Modify to only return products for given category id
+
+**Search for Products by Category with Dynamic Search Component**
+- Modify Spring Boot `MyDataRestConfig.java` to expose entity ids
+- Created new component for menu `product-category-menu`
+- Updated `product-category-menu.component.ts` to read categories from service
+- Updated `product.service.ts` to call URL on Spring Boot app 
+- Replace hard-coded links with menu component
+  - menu component loops over categories & builds links dynamically
