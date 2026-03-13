@@ -52,3 +52,22 @@
 
 - `product-list-grid.component.html`: HTML Page for Product List
   - Updated product list component to be shown as a grid 
+
+
+**Search for Products by Category**
+- `app.modules.ts`
+  - Defined 5 routes: "category/:id", "category", "prooducts","","**"
+    - Includes empty and any route that doesn't match
+  - Configured router based on routes
+- `app.component.html`
+  - Set up router links to pass category id param
+  - Once user clicks link -> apply custom CSS style 
+- `product-list.component.ts`  Product List TypeScript Class
+  - Enhance component to read category id parameter
+  - Now can retrieve products for given category id
+- `product.service.ts` Angular Product Service
+  - Updated `getProductList()` to accept parameter for number
+  - Updated url to call new url based on category id
+- Modify Spring Boot App
+  - REST repository needs new method 
+  - Modify to only return products for given category id

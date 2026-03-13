@@ -5,13 +5,36 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
+import { RouterModule, Routes } from '@angular/router';
 
+// define routes
+// order of routes is important: first match wins
+const routes: Routes = [
+  // path to match => category/:id
+  // when path matches => creates new instance of product list component
+  {path: 'category/:id', component: ProductListComponent},
+
+  // route for category & products
+  // both go to ProductListComponent
+  {path: 'category', component: ProductListComponent},
+  {path: 'products', component: ProductListComponent},
+
+  // route for empty path
+  // redirects to /products
+  {path: '', redirectTo: '/products', pathMatch: 'full'},
+
+  // generic wildcard
+  // matches anything that didn't match aove results
+  {path: '**', redirectTo: '/products', pathMatch: 'full'}
+];
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent
   ],
   imports: [
+    // configured router based on our routes
+    RouterModule.forRoot(routes),
     BrowserModule,
     // import module for HttpClient
     HttpClientModule
