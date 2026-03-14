@@ -15,4 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
   // Page & Pageable provide support for pagination
   // SELECT * FROM product where category_id=[param id]
   Page<Product> findByCategoryId(@Param("id") Long id, Pageable pageable);
+
+  // SELECT * FROM Product p WHERE p.name LIKE CONCAT('%', :name, '%')
+  Page<Product> findByNameContaining(@Param("name") String name, Pageable page);
 }

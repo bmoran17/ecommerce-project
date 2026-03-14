@@ -11,27 +11,21 @@ import { ProductCategory } from '../common/product-category';
 
 export class ProductService {
 
-  // Url for Spring Boot REST API
+  // url for Spring Boot REST API
   private baseUrl = 'http://localhost:8080/api/products';
-
   private categoryUrl = 'http://localhost:8080/api/product-category';
 
   // inject HttpClient
   constructor(private httpClient: HttpClient) { }
 
   // method returns observable of product array
-  // map JSON data from Spring Data REST to Product array
-  getProductList(theCategoryId:number): Observable<Product[]> {
+  // maps JSON data from Spring Data REST to Product array
+  getProductList(theCategoryId: number): Observable<Product[]> {
 
     // build URl based on category id
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
+    return this.getProducts(searchUrl);
 
-    // httpClient makes a get request to base url 
-    // data return gets pipe and map to given data type
-    // get response._embedded.products => product array 
-    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-      map(response => response._embedded.products) 
-    );
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
@@ -42,6 +36,26 @@ export class ProductService {
       map(response => response._embedded.productCategory) 
     );
 
+  }
+
+  searchProducts(theKeyword: string): Observable<Product[]> {
+
+    // need to build URL based on the keyword
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+
+    return this.getProducts(searchUrl);
+
+  }
+
+
+    // httpClient makes a get request to base url 
+    // data return gets pipe and map to given data type
+    // get response._embedded.products => product array
+
+  private getProducts(searchUrl: string): Observable<Product[]> {
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+      map(response => response._embedded.products)
+    );
   }
 }
 

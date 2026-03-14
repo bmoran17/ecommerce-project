@@ -7,10 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { SearchComponent } from './components/search/search.component';
 
 // define routes
 // order of routes is important: first match wins
 const routes: Routes = [
+
+  // route for searching handle by ProductListComponent
+  {path: 'search/:keyword', component: ProductListComponent},
+
   // path to match => category/:id
   // when path matches => creates new instance of product list component
   {path: 'category/:id', component: ProductListComponent},
@@ -32,7 +37,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    SearchComponent
   ],
   imports: [
     // configured router based on our routes

@@ -1,0 +1,17 @@
+<div class="form-header">
+
+  <!-- 
+  template reference variable: #myInput
+  event handler: user presses enter key -> call doSearch(text user typed in)
+  event handler: user clickes search button -> call doSearch(text user typed in)
+  -->
+  <input #myInput type="text" 
+         placeholder="Search for data ..."
+         class="au-input au-input-xl" 
+         (keyup.enter)="doSearch(myInput.value)"/>
+
+  <button (click)="doSearch(myInput.value)" class="au-btn-submit" >
+    Search
+  </button>
+
+</div>

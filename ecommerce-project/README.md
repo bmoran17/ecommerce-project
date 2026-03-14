@@ -79,3 +79,12 @@
 - Updated `product.service.ts` to call URL on Spring Boot app 
 - Replace hard-coded links with menu component
   - menu component loops over categories & builds links dynamically
+
+**Search for Products by Keyword**
+- Modify Spring Boot `ProductRepository.java` to add new search method
+  - Method searches products containing the keyword/name provided by user
+- Created new component `search`
+  - Updated component to send data to search route
+- Added new angular route for searching in `app.module.ts`
+- Updated `product-list` component to search for products with product service
+- Updated `product.service.ts` to call REST API with url based on keyword

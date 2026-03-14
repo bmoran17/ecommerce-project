@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   // array of products
   products: Product[] = [];
   currentCategoryId: number = 1;
+  searchMode: boolean = false; 
   
   // inject dependecy ProductService & ActivatedRoute
   // ActivatedRoute == current active route that loaded the component - useful for accessing route parameters
@@ -26,8 +27,35 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  // Retriving Data
+  // Call handleListProducts() to retrieve data
   listProducts() {
+    
+    // check if route has a parameter for keyword
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+    // perform search if there's a keyword parameter
+    if (this.searchMode) {
+      this.handleSearchProducts();
+    // not in search mode so list products
+    } else {
+      this.handleListProducts();
+    }
+  }
+
+  handleSearchProducts() {
+  
+    // get keyword user typed in
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
+
+    // search for products using keyword
+    this.productService.searchProducts(theKeyword).subscribe(
+      data => {
+        this.products = data;
+      }
+    )
+  }
+
+  handleListProducts() {
 
     /**
     check if "id" parameter is available
