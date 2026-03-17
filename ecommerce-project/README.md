@@ -88,3 +88,11 @@
 - Added new angular route for searching in `app.module.ts`
 - Updated `product-list` component to search for products with product service
 - Updated `product.service.ts` to call REST API with url based on keyword
+
+**Product Master Detail View**
+- Created new component for product details: `ProductDetailsComponent`
+- Added new Angular route for product details in `app.module.ts`
+- Added router links to product-list-grid HTML to product image & product name
+- Updated `ProductDetailsComponent.ts` to retrieve product fronm ProductService
+- Updated `product.service.ts` to call URL for retrieving a product
+- Updated `ProductDetailsComponent` HTML page to display product details

@@ -1,7 +1,8 @@
 export class Product {
 
   // matches properties coming from JSON data coming from Spring REST API
-  constructor(public sku: string,
+  constructor(public id: number,
+              public sku: string,
               public name: string,
               public description: string,
               public unitPrice: number,

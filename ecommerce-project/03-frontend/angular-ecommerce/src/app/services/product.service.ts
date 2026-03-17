@@ -18,6 +18,14 @@ export class ProductService {
   // inject HttpClient
   constructor(private httpClient: HttpClient) { }
 
+
+  getProduct(theProductId: number): Observable<Product> {
+
+    // build URL based on product id
+    const productUrl = `${this.baseUrl}/${theProductId}`;
+    return this.httpClient.get<Product  >(productUrl);
+  }
+
   // method returns observable of product array
   // maps JSON data from Spring Data REST to Product array
   getProductList(theCategoryId: number): Observable<Product[]> {

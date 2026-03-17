@@ -8,10 +8,13 @@ import { ProductService } from './services/product.service';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 // define routes
 // order of routes is important: first match wins
 const routes: Routes = [
+  // route for product details
+  {path: 'products/:id', component: ProductDetailsComponent},
 
   // route for searching handle by ProductListComponent
   {path: 'search/:keyword', component: ProductListComponent},
@@ -38,7 +41,8 @@ const routes: Routes = [
     AppComponent,
     ProductListComponent,
     ProductCategoryMenuComponent,
-    SearchComponent
+    SearchComponent,
+    ProductDetailsComponent
   ],
   imports: [
     // configured router based on our routes
