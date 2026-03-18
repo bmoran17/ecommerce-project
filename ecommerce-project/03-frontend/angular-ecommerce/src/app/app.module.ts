@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,21 +19,17 @@ const routes: Routes = [
   // route for searching handle by ProductListComponent
   {path: 'search/:keyword', component: ProductListComponent},
 
-  // path to match => category/:id
-  // when path matches => creates new instance of product list component
+  // category/:id path matches => creates new instance of product list component
   {path: 'category/:id', component: ProductListComponent},
 
-  // route for category & products
-  // both go to ProductListComponent
+  // route for category & products -> ProductListComponent
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
 
-  // route for empty path
-  // redirects to /products
+  // route for empty path -> redirects to /products
   {path: '', redirectTo: '/products', pathMatch: 'full'},
 
-  // generic wildcard
-  // matches anything that didn't match aove results
+  // generic wildcard -> matches anything that didn't match above results
   {path: '**', redirectTo: '/products', pathMatch: 'full'}
 ];
 @NgModule({
@@ -49,7 +45,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     // import module for HttpClient
-    HttpClientModule
+    HttpClientModule,
+    // exposes the exported declarations in NgbModule 
+    // makes them available in current module
+    NgbModule
   ],
   // add reference to ProductService
   // allows injection of given service into other parts of application

@@ -96,3 +96,13 @@
 - Updated `ProductDetailsComponent.ts` to retrieve product fronm ProductService
 - Updated `product.service.ts` to call URL for retrieving a product
 - Updated `ProductDetailsComponent` HTML page to display product details
+
+**Pagination Support**
+- Installed `ng-bootstrap` & imported module for it in `app.module.ts`
+- Refactor interface for `GetResponseProducts` from `ProductService` to support pagination meta data
+- Added Pagination API calls to `ProductService`
+- Updated `ProductListComponent` to handle pagination 
+- Updated `ProductListComponent` HTML template to use ng-bootstrap pagination component
+  - Added a drop down list for page size selection
+  - Added boundary links to select first or last page
+- Added pagination support for keyword search
