@@ -88,6 +88,8 @@
 - Added new angular route for searching in `app.module.ts`
 - Updated `product-list` component to search for products with product service
 - Updated `product.service.ts` to call REST API with url based on keyword
+- Example: Searching for product with keyword 'python'
+  ![Python product search](./search-keyword.png)
 
 **Product Master Detail View**
 - Created new component for product details: `ProductDetailsComponent`
@@ -96,6 +98,8 @@
 - Updated `ProductDetailsComponent.ts` to retrieve product fronm ProductService
 - Updated `product.service.ts` to call URL for retrieving a product
 - Updated `ProductDetailsComponent` HTML page to display product details
+- Pagination Component
+  ![Pagination Component](./pagination.png)
 
 **Pagination Support**
 - Installed `ng-bootstrap` & imported module for it in `app.module.ts`
@@ -106,3 +110,12 @@
   - Added a drop down list for page size selection
   - Added boundary links to select first or last page
 - Added pagination support for keyword search
+
+**Shopping Cart Component**
+- Created new component `CartStatus`
+  - Added HTML template 
+  - Added click handler for "Add to cart" button in `ProductListComponent` HTML page
+  - Updated `ProductListComponent.ts` with click handler method
+  - Component: 
+  ![Shopping Cart Component](./cart-component.png)
+
