@@ -98,8 +98,8 @@
 - Updated `ProductDetailsComponent.ts` to retrieve product fronm ProductService
 - Updated `product.service.ts` to call URL for retrieving a product
 - Updated `ProductDetailsComponent` HTML page to display product details
-- Pagination Component
-  ![Pagination Component](./pagination.png)
+- Example: Product Detail View
+  ![Product Detail Page](product-details.png)
 
 **Pagination Support**
 - Installed `ng-bootstrap` & imported module for it in `app.module.ts`
@@ -110,6 +110,8 @@
   - Added a drop down list for page size selection
   - Added boundary links to select first or last page
 - Added pagination support for keyword search
+- Pagination Component
+  ![Pagination Component](./pagination.png)
 
 **Shopping Cart Component**
 - Created new component `CartStatus`
@@ -118,4 +120,13 @@
   - Updated `ProductListComponent.ts` with click handler method
   - Component: 
   ![Shopping Cart Component](./cart-component.png)
+- Added functionality to add products to cart
+  - Created model class: `CartItem` that contains essential fields of `Product` for use in cart
+  - Created `CartService` to handle all logic
+  - Modify `ProductListComponent` to call `CartService` 
+  - Updated `CartStatusComponent` to subscribe to `CartService`
+  - Updated `CartStatusComponent` HTML to display cart total price & quantity
+- Added functionality to add products to cart from details view
+  - Added click handler for "Add to cart" button on `product-details.component.html`
+  - Updated `ProductDetailsComponent` with click handler method
 
