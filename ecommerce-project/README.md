@@ -130,3 +130,15 @@
   - Added click handler for "Add to cart" button on `product-details.component.html`
   - Updated `ProductDetailsComponent` with click handler method
 
+**Shopping Cart - List Items**
+- Created new component `CartDetailsComponent`
+- Added new route for `CartDetailsComponent` in `app.module.ts`
+- Updated link for shopping cart icon in `cart-status` component HTML template
+- Added logic for retriving cart items in `cart-details.component.ts`
+- Added HTML template for `CartDetailsComponent`
+  - When no items are in cart, message is displayed
+- Added increment & decrement buttons to update quantity for a product
+  - Added on click event handler & updated `CartDetailsComponent` with click handler method
+- Added remove button to remove complete quantity of a product
+- Example: Shopping cart displaying items
+  ![Shopping cart displaying items](./cart-list-items.png)

@@ -10,10 +10,14 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 // define routes
 // order of routes is important: first match wins
 const routes: Routes = [
+  // route for cart details component
+  {path: 'cart-details', component: CartDetailsComponent},
+
   // route for product details
   {path: 'products/:id', component: ProductDetailsComponent},
 
@@ -40,7 +44,8 @@ const routes: Routes = [
     ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent
   ],
   imports: [
     // configured router based on our routes
