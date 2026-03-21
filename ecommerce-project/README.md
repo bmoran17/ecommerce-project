@@ -142,3 +142,18 @@
 - Added remove button to remove complete quantity of a product
 - Example: Shopping cart displaying items
   ![Shopping cart displaying items](./cart-list-items.png)
+
+**Checkout Form**
+- Created new component `Checkout`
+- Added new route for `Checkout` component
+- Added checkout button & link to `Checkout` component to `Cart-details` component
+- Button: 
+  ![Checkout button](./checkout-btn.png)
+- Added support for reactive forms
+- Defined form in `Checkout` component `.ts` file
+  - Includes groups forms for customer, shipping address, billing address, credit card
+- Added forms to `Checkout` HTML component using form controls
+- Added event handler for form submission 
+  - Console logs message for now
+- Checkout Page with forms:
+  ![Checkout Page](./checkout-form.png)

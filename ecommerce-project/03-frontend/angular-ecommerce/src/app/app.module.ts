@@ -11,10 +11,15 @@ import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // define routes
 // order of routes is important: first match wins
 const routes: Routes = [
+  // route for checkout component
+  {path: 'checkout', component: CheckoutComponent},
+
   // route for cart details component
   {path: 'cart-details', component: CartDetailsComponent},
 
@@ -45,7 +50,8 @@ const routes: Routes = [
     SearchComponent,
     ProductDetailsComponent,
     CartStatusComponent,
-    CartDetailsComponent
+    CartDetailsComponent,
+    CheckoutComponent
   ],
   imports: [
     // configured router based on our routes
@@ -55,7 +61,9 @@ const routes: Routes = [
     HttpClientModule,
     // exposes the exported declarations in NgbModule 
     // makes them available in current module
-    NgbModule
+    NgbModule,
+    // support for reactive forms
+    ReactiveFormsModule
   ],
   // add reference to ProductService
   // allows injection of given service into other parts of application
