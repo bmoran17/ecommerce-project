@@ -158,3 +158,26 @@
   - Console logs message for now
 - Checkout Page with forms:
   ![Checkout Page](./checkout-page.png)
+
+**Checkout Form: Populate Countries & States**
+- Created database tables with db script `countries-and-states`
+- Developed JPA entities: `Country` & `State`
+  - Mapped both classes to corresponding tables in db
+- Created Spring Data REST repositories for `Country` & `State`
+  - Endpoints expose: `/countries` & `/states`
+  - Added query to expose endpoint that retrives states for a given country code
+- Updated Spring Data REST Configs
+  - Made APIs for `/countries` & `/states` read only
+  - Just reference data so no need to change via REST API
+- Created TS classes for `Country` & `State`
+- Added methods to make REST API call to get countries & states
+  - States depend on country code given
+- Updated HTML template for `Checkout` component 
+  - Loop over array of contries to populate drop down list for countries
+- Updated `Checkout` component: added event handler
+  - Read selected country code from form
+  - Retrieve states for selected country code
+- Updated HTML template for `Checkout` component 
+  - Loop over array of states to populate drop down list for states
+- Result: Populates countries & states according to country selected for billing and shipping address sections for country and state
+  

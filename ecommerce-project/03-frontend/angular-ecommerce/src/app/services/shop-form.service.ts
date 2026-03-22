@@ -1,12 +1,39 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Country } from '../common/country';
+import { map } from 'rxjs/operators';
+import { State } from '../common/state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopFormService {
 
-  constructor() { }
+  private countriesUrl = 'http://localhost:8080/api/countries';
+  private statesUrl = 'http://localhost:8080/api/states';
+
+  // inject HttpClient to make REST calls
+  constructor(private httpClient: HttpClient) { }
+
+  getCountries(): Observable<Country[]> {
+
+    // REST API call to get countries
+    return this.httpClient.get<GetResponseCountries>(this.countriesUrl).pipe(
+      map(response => response._embedded.countries)
+    );
+  
+  }
+
+  getStates(theCountryCode: string): Observable<State[]> {
+  
+    // search url
+    const searchStatesUrl = `${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}`;
+    // REST API call to get states by country code
+    return this.httpClient.get<GetResponseStates>(searchStatesUrl).pipe(
+      map(response => response._embedded.states)
+    );
+  }
 
   // returns observable array
   // using observable b/c angular components will subscribe to this method to get results of async call
@@ -41,5 +68,18 @@ export class ShopFormService {
 
     // wrap as an observable
     return of(data);
+  }
+}
+
+// unwraps JSON from Spring Data REST _embedded entry
+interface GetResponseCountries {
+  _embedded: {
+    countries: Country[];
+  }
+}
+
+interface GetResponseStates {
+  _embedded: {
+    states: State[];
   }
 }
