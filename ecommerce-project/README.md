@@ -153,7 +153,8 @@
 - Defined form in `Checkout` component `.ts` file
   - Includes groups forms for customer, shipping address, billing address, credit card
 - Added forms to `Checkout` HTML component using form controls
+  - Form includes dependent fields: values of month depends in year
 - Added event handler for form submission 
   - Console logs message for now
 - Checkout Page with forms:
-  ![Checkout Page](./checkout-form.png)
+  ![Checkout Page](./checkout-page.png)
