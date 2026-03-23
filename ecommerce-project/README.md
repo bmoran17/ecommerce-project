@@ -180,4 +180,18 @@
 - Updated HTML template for `Checkout` component 
   - Loop over array of states to populate drop down list for states
 - Result: Populates countries & states according to country selected for billing and shipping address sections for country and state
+
+**Checkout Form: Validation**
+- Checkout form validation requirements
+  - all fields are required
+  - email address has proper email format
+  - credit card field: only numbers allowed (16 digits)
+- Created custom validator rule `notOnlyWhitespace` to check field doesn't only have whitespace
+- Specified validation rules for form controls in `Checkout` component TS file
+  - Created form control & passed in initial value & validators
+- Added event handler to check validation on submit
+- Added getter methods to access form controls
+- Updated `Checkout` component HTML template to display error messages
+- Example: Customer form with required validation requirement
+  ![Customer form inputs with required fields](./customer-validation.png)
   
