@@ -194,4 +194,15 @@
 - Updated `Checkout` component HTML template to display error messages
 - Example: Customer form with required validation requirement
   ![Customer form inputs with required fields](./customer-validation.png)
+
+**Checkout Form: Review Cart Totals**
+- Issue: `CheckoutComponent` is instantiated later in app & misses previous events
+  - Totals are 0 since its not aware of added items to cart
+- Updated `CartService` from `Subject` to `BehaviorSubject`
+  - `Subject` only receives new events after subscribing
+  - `BehaviorSubject` receives latest event & new events after subscribing
+- Injected `CartService` into `CheckoutComponent`
+- Added method `reviewCartDetails` to `CheckoutComponent` to subscribe to total quantity & price
+- Example: Review Total
+  ![Review your total section](./review-total.png)
   
