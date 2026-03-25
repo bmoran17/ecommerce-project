@@ -1,10 +1,15 @@
 ## Full Stack: Angular & Java Spring Boot E-Commerce Website
+**Based on Udemy Course: Build a Full Stack E-Commerce website with Angular and Java Spring Boot:** [Udemy Course Link](https://wgu.udemy.com/course/full-stack-angular-spring-boot-tutorial/learn/lecture/23849038#overview)
 - Frontend: Angular
 - Backend: Spring Boot
 
 ### Version 1.0 - Show a List of Products
 - Basic front end that just displays products
 ![Basic page in table format](./progress/basic-front-end.png)
+
+### Version 2.0 - Full eCommerce Website
+- Fully functional eCommerce website that allows adding items to cart, provides checkout proces, and saves orders in databse
+![Home page of eCommerce website](./progress/home-page.png)
 
 **Starter Files**
 - Includes database setup scripts
@@ -48,7 +53,7 @@
   - Added Angular currency pipe to format price in USD
   - Added CrossOrigin Support to Spring Boot
 
-### Version 2.0 - Full eCommerce Website
+### Version 2.0 Changes
 - `app.component.html`: HTML Home Page for App
   - Template updated to include side bar, header, footer and product list component
 
@@ -224,3 +229,11 @@
   - Saves data to database via repository
   - Returns tracking number in response
 - Created controller to accept DTO data & call service to process it
+
+**Checkout Form: Save Order to Database - Frontend**
+- Created common classes for customer, order, order item, address, purchase
+- Created checkout service that makes REST API call to Spring Boot backend
+- Injected `CheckoutService` & `Router` into `Checkout` component
+  - Updated `onSubmit()` method to set up `Order` & `Purchase`
+  - Added `resetCart` method that resets cart data & form data
+  - Made a call to REST API & displays success or error message depending on response
