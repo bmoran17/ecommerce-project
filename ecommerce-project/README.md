@@ -1,9 +1,11 @@
 ## Full Stack: Angular & Java Spring Boot E-Commerce Website
-**Current Status: Basic Front End**
-![Basic page in table format](basic-front-end.png)
+- Frontend: Angular
+- Backend: Spring Boot
 
+### Version 1.0 - Show a List of Products
+- Basic front end that just displays products
+![Basic page in table format](./progress/basic-front-end.png)
 
-### Changes Implemented:
 **Starter Files**
 - Includes database setup scripts
   - `01-create-user.sql` creates MySQL user for application
@@ -46,7 +48,7 @@
   - Added Angular currency pipe to format price in USD
   - Added CrossOrigin Support to Spring Boot
 
-### Version 2.0 Changes
+### Version 2.0 - Full eCommerce Website
 - `app.component.html`: HTML Home Page for App
   - Template updated to include side bar, header, footer and product list component
 
@@ -89,7 +91,7 @@
 - Updated `product-list` component to search for products with product service
 - Updated `product.service.ts` to call REST API with url based on keyword
 - Example: Searching for product with keyword 'python'
-  ![Python product search](./search-keyword.png)
+  ![Python product search](./progress/search-keyword.png)
 
 **Product Master Detail View**
 - Created new component for product details: `ProductDetailsComponent`
@@ -99,7 +101,7 @@
 - Updated `product.service.ts` to call URL for retrieving a product
 - Updated `ProductDetailsComponent` HTML page to display product details
 - Example: Product Detail View
-  ![Product Detail Page](product-details.png)
+  ![Product Detail Page](./progress/product-details.png)
 
 **Pagination Support**
 - Installed `ng-bootstrap` & imported module for it in `app.module.ts`
@@ -111,7 +113,7 @@
   - Added boundary links to select first or last page
 - Added pagination support for keyword search
 - Pagination Component
-  ![Pagination Component](./pagination.png)
+  ![Pagination Component](./progress//pagination.png)
 
 **Shopping Cart Component**
 - Created new component `CartStatus`
@@ -119,7 +121,7 @@
   - Added click handler for "Add to cart" button in `ProductListComponent` HTML page
   - Updated `ProductListComponent.ts` with click handler method
   - Component: 
-  ![Shopping Cart Component](./cart-component.png)
+  ![Shopping Cart Component](./progress//cart-component.png)
 - Added functionality to add products to cart
   - Created model class: `CartItem` that contains essential fields of `Product` for use in cart
   - Created `CartService` to handle all logic
@@ -141,14 +143,14 @@
   - Added on click event handler & updated `CartDetailsComponent` with click handler method
 - Added remove button to remove complete quantity of a product
 - Example: Shopping cart displaying items
-  ![Shopping cart displaying items](./cart-list-items.png)
+  ![Shopping cart displaying items](./progress//cart-list-items.png)
 
 **Checkout Form**
 - Created new component `Checkout`
 - Added new route for `Checkout` component
 - Added checkout button & link to `Checkout` component to `Cart-details` component
 - Button: 
-  ![Checkout button](./checkout-btn.png)
+  ![Checkout button](./progress/checkout-btn.png)
 - Added support for reactive forms
 - Defined form in `Checkout` component `.ts` file
   - Includes groups forms for customer, shipping address, billing address, credit card
@@ -157,7 +159,7 @@
 - Added event handler for form submission 
   - Console logs message for now
 - Checkout Page with forms:
-  ![Checkout Page](./checkout-page.png)
+  ![Checkout Page](./progress/checkout-page.png)
 
 **Checkout Form: Populate Countries & States**
 - Created database tables with db script `countries-and-states`
@@ -193,7 +195,7 @@
 - Added getter methods to access form controls
 - Updated `Checkout` component HTML template to display error messages
 - Example: Customer form with required validation requirement
-  ![Customer form inputs with required fields](./customer-validation.png)
+  ![Customer form inputs with required fields](./progress/customer-validation.png)
 
 **Checkout Form: Review Cart Totals**
 - Issue: `CheckoutComponent` is instantiated later in app & misses previous events
@@ -204,5 +206,21 @@
 - Injected `CartService` into `CheckoutComponent`
 - Added method `reviewCartDetails` to `CheckoutComponent` to subscribe to total quantity & price
 - Example: Review Total
-  ![Review your total section](./review-total.png)
-  
+  ![Review your total section](./progress/review-total.png)
+
+**Checkout Form: Save Order to Database - Backend**
+- Run SQL script `04-create-order-tables.sql`
+  - Creates tables for address, customer, order item, orders
+- Created JPA entities classes for address, customer, order item, orders
+  - Created Java classes that mapped to database tables 
+- Created data transfer object == data transfer between angular front end & Spring boot back end
+  - `Purchase` class includes objects of: Customer, shipping address, billing address, order, order item[]
+  - `PurchaseResponse` class used to send back a java object as JSON
+- Created repository to provide interface for interacting with database
+- Created service to retrieve order information from data transfer object
+  - Generates UUID as tracking number 
+  - Populates order with order items, billing & shipping address
+  - Associates order with customer
+  - Saves data to database via repository
+  - Returns tracking number in response
+- Created controller to accept DTO data & call service to process it
